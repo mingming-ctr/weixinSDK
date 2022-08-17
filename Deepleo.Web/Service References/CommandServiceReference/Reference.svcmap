@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="835a9eb8-a612-4b90-8e23-5c11e40e175c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fc8c4f8f-afd4-4943-beb3-121c28ef9357" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -21,10 +22,10 @@
     <MetadataSource Address="http://localhost:5566/CommanderService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CommanderService.wsdl" MetadataType="Wsdl" ID="05f92139-3efd-4054-a904-2ab70121e807" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?wsdl" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="4fb4ad0f-3436-4633-9eb3-b10584ab3ce5" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="91eedb39-6236-46bc-9c71-baf0fc7efd60" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="148025e7-0f00-4ab6-9bb1-22e9c375f33d" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="247a2f8a-c429-4731-b517-86f87f0e0f54" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?disco" />
+    <MetadataFile FileName="CommanderService.wsdl" MetadataType="Wsdl" ID="ebc9189d-23f0-40e2-99a5-78c434acae65" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="7856ca1c-bf21-48ce-a0ca-684fe0850d7b" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d836958d-85d1-4a51-91fc-529c71d37014" SourceId="1" SourceUrl="http://localhost:5566/CommanderService/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

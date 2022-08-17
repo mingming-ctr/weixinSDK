@@ -18,8 +18,14 @@ namespace Deepleo.Web.CommandServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICommanderService/GetAccessToken", ReplyAction="http://tempuri.org/ICommanderService/GetAccessTokenResponse")]
         string GetAccessToken(string appid, string appSecret, bool force);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICommanderService/GetAccessToken", ReplyAction="http://tempuri.org/ICommanderService/GetAccessTokenResponse")]
+        System.Threading.Tasks.Task<string> GetAccessTokenAsync(string appid, string appSecret, bool force);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICommanderService/GetJsTicket", ReplyAction="http://tempuri.org/ICommanderService/GetJsTicketResponse")]
         string GetJsTicket(string appid, string appSecret, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICommanderService/GetJsTicket", ReplyAction="http://tempuri.org/ICommanderService/GetJsTicketResponse")]
+        System.Threading.Tasks.Task<string> GetJsTicketAsync(string appid, string appSecret, bool force);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -53,8 +59,16 @@ namespace Deepleo.Web.CommandServiceReference {
             return base.Channel.GetAccessToken(appid, appSecret, force);
         }
         
+        public System.Threading.Tasks.Task<string> GetAccessTokenAsync(string appid, string appSecret, bool force) {
+            return base.Channel.GetAccessTokenAsync(appid, appSecret, force);
+        }
+        
         public string GetJsTicket(string appid, string appSecret, bool force) {
             return base.Channel.GetJsTicket(appid, appSecret, force);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetJsTicketAsync(string appid, string appSecret, bool force) {
+            return base.Channel.GetJsTicketAsync(appid, appSecret, force);
         }
     }
 }
