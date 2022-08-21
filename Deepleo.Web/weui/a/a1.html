@@ -3360,13 +3360,19 @@
                                                 <input id="email" name="email" class="weui-input" value="xxx@qq.com" />
                                             </div>
                                         </label>
+                                        <label id="lbYouxiaoqi" for="youxiaoqi" class="weui-cell weui-cell_active">
+                                            <div class="weui-cell__hd"><span class="weui-label">有效期</span></div>
+                                            <div class="weui-cell__bd">
+                                                <input id="youxiaoqi" name="youxiaoqi" class="weui-input" value="" />
+                                            </div>
+                                        </label>
 
                                     </div>
                                 </div>
                             </div>
 
                             <div class="weui-btn-area">
-                                <a id="formSubmitBtn" href="javascript:" onclick="submitForm();return false;" class="weui-btn weui-btn_primary">提交</a>
+                                <a id="formSubmitBtn" href="javascript:" class="weui-btn weui-btn_primary">提交</a>
                             </div>
 
                         </form>
@@ -3454,26 +3460,47 @@
                         console.log(result1)
 
 
-                        wechatNum = a.Table1[0]["wechatNum"];
-                        console.log(wechatNum);
-                        $("#wechatNum").val(wechatNum);
+                        if (a.Table1 == "") {
 
-                        $("#wechatNum").attr("readonly", "true");
-                        $("#mima").attr("type", "password");
+                            $("#lbYouxiaoqi").remove()
 
-                        $("#mima").focus(function () {
-                            $("#mima").removeAttr("type");
-                        })
+                            return
 
-                        zuihouYitian = a.Table1[0]["zuihouYitian"];
-                        console.log(zuihouYitian)
-                        email = a.Table1[0]["email"];
-                        console.log(email)
-                        $("#email").val(email);
+
+                        }
+
+                        if ("验证通过" == result1) {
+                            wechatNum = a.Table1[0]["wechatNum"];
+                            console.log(wechatNum);
+                            $("#wechatNum").val(wechatNum);
+                            $("#wechatNum").attr("readonly", "true");
+
+                            var mima = a.Table1[0]["mima"];
+                            console.log(mima);
+                            $("#mima").val(mima);
+
+
+                            $("#mima").attr("type", "password");
+
+                            $("#mima").focus(function () {
+                                $("#mima").removeAttr("type");
+                            })
+
+                            youxiaoqi = a.Table1[0]["youxiaoqi"];
+                            youxiaoqi = youxiaoqi.replace("T", "  ");
+                            console.log(youxiaoqi)
+                            $("#youxiaoqi").val(youxiaoqi);
+                            $("#youxiaoqi").attr("readonly", "true");
+
+
+                            email = a.Table1[0]["email"];
+                            console.log(email)
+                            $("#email").val(email);
+                            $("#formSubmitBtn").text("更新")
                         //alert(result1);
 
-                        if ("验证通过" == result)
-                            weui.alert("绑定成功")
+                        }
+
 
 
                     },
@@ -3497,31 +3524,46 @@
                     return openId
 
                 }
-                function submitForm(send) {
+                function submitForm() {
+                    var update = $("#formSubmitBtn").text()
+                    console.log(update)
+
+                    var url = "/api/user";
+                    var type = "POST";
+                    if (update == "更新") {
+                        url = url + "/" + openId;
+                        type = "PUT";
+                    }
                     $.ajax({
                         //几个参数需要注意一下
-                        type: "POST",//方法类型
+                        type: type,//方法类型
                         caches: false,//不要读取缓存
                         dataType: "json",//预期服务器返回的数据类型
-                        url: "/api/user",//url
+                        url: url,//url
                         data: $('#formSubmit').serialize(),
                         success: function (result) {
                             console.log(result);//打印服务端返回的数据(调试用)
-                            if ("验证通过" == result)
-                                weui.alert("绑定成功")
+                            if ("验证通过" == result) {
+
+                                weui.alert("保存成功")
+                                location.reload();
+                            }
                             else
                                 weui.alert(result)
                         },
-                        error: function () {
-                            alert("异常！");
+                        error: function (ex) {
+                            console.log(ex)
+                            alert(ex);
                         }
                     });
 
-                    // send.submitForm
-                    // weui.alert('111111111');
 
                 }
 
+                $("#formSubmitBtn").click(function (event) {
+                    /* Act on the event */
+                    submitForm();
+});
             });
 
         </script>

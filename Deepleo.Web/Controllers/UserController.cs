@@ -37,8 +37,11 @@ namespace Deepleo.Web.Controllers
         }
 
         // PUT api/user/5
-        public void Put(int id, [FromBody]string value)
+        public string Put(string id, [FromBody]UserModel p)
         {
+            DataSet ds = UserManager.UpdateUser(p);
+            string result = ds.Tables[0].Rows[0]["result"].ToString();
+            return result;
         }
 
         // DELETE api/user/5

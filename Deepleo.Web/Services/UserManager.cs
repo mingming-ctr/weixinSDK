@@ -66,6 +66,41 @@ SELECT *
 
 
         }
+        
+        public static DataSet UpdateUser(UserModel p)
+        {
+
+            string sqlFmt =
+                @"
+
+
+SELECT case when '{0}'==''
+           then '微信号必须输入'  
+            when '{1}'==''
+           then '必须通过微信公众号完成绑定'  
+           else '验证通过' end AS result;
+---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
+
+
+update User
+set 
+    mima='{2}',
+    email='{3}'
+    where openId='{1}';
+                  
+SELECT *
+  FROM User
+  where id =last_insert_rowid()
+ ;
+
+";
+          
+            string sql = string.Format(sqlFmt, p.wechatNum, p.openId,p.mima,p.email);
+            DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
+                return ds;
+
+
+        }
 
         internal static DataSet UserVisit(string openId)
         {

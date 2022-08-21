@@ -10,7 +10,7 @@ namespace Deepleo.Web.Models
         public string openId { set; get; }
         public string wechatNum { set; get; }
         public DateTime creatAt { set; get; }
-        public string zuihouYitian { set; get; }
+        public string youxiaoqi { set; get; }
         public string mima { set; get; }
         public string email { set; get; }
 
