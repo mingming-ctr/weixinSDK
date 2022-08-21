@@ -32,7 +32,7 @@ namespace Deepleo.Web
         public string Execute(WeixinMessage message)
         {
             var result = "";
-            var domain = System.Configuration.ConfigurationManager.AppSettings["Domain"];//请更改成你的域名
+            var domain = Deepleo.Web.WeixinConfig.Readconfigini("Domain");//请更改成你的域名
             var openId = message.Body.FromUserName.Value;
             var myUserName = message.Body.ToUserName.Value;
             //这里需要调用TokenHelper获取Token的，省略了。
@@ -40,7 +40,35 @@ namespace Deepleo.Web
             {
                 case WeixinMessageType.Text://文字消息
                     string userMessage = message.Body.Content.Value;
-                    result = ReplayPassiveMessageAPI.RepayText(openId, myUserName, "欢迎使用，您输入了：" + userMessage);
+                    result = ReplayPassiveMessageAPI.RepayText(openId, myUserName, "明莉姿，欢迎使用，您输入了：" + userMessage);
+                    result = ReplayPassiveMessageAPI.RepayText(openId, myUserName, "http://192.168.1.77:807/index.html");
+                    result = ReplayPassiveMessageAPI.RepayText(openId, myUserName, "http://192.168.1.77:807/search.html");
+
+
+
+                    StringBuilder b = new StringBuilder();
+                    b.AppendLine("微信样式");
+                    b.AppendLine("https://weui.io/");
+                    b.AppendLine("我的设计");
+                    b.AppendLine("http://192.168.1.66:1981/weui/a/a.html");
+                    b.AppendLine("  ");
+                    b.AppendLine("<a href = \"http://www.baidu.com\" > baidu </a>");
+                    b.AppendLine("  ");
+                    string ziyuan = "<a href = \"http://192.168.1.66:1981/weui/a/a1.html?openId=" + openId + "#tabbar\" > 代找资源 </a>";
+                    b.AppendLine(ziyuan);
+
+                    result = ReplayPassiveMessageAPI.RepayText(openId, myUserName, b.ToString());
+
+
+
+                    //result = ReplayPassiveMessageAPI.RepayNews(openId, myUserName, new WeixinNews
+                    //{
+                    //    title = "您刚才发送了图片消息"+b.ToString(),
+                    //    picurl = string.Format("{0}/Images/ad.jpg", domain),
+                    //    description = "点击查看图片"+b.ToString(),
+                    //    url = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"
+                    //});
+
                     break;
                 case WeixinMessageType.Image://图片消息
                     string imageUrl = message.Body.PicUrl.Value;//图片地址

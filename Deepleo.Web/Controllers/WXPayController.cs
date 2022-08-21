@@ -27,7 +27,7 @@ namespace Deepleo.Web.Controllers
             try
             {
                 var out_trade_no = Guid.NewGuid().ToString("N");
-                var domain = System.Configuration.ConfigurationManager.AppSettings["Domain"];
+                var domain = Deepleo.Web.WeixinConfig.Readconfigini("Domain");
                 var body = "商品描述";
                 var detail = "商品详情";
                 var attach = "";
@@ -37,7 +37,7 @@ namespace Deepleo.Web.Controllers
                 var fee_type = "CNY";
                 var total_fee = 10;
                 var trade_type = "JSAPI";
-                var appId = System.Configuration.ConfigurationManager.AppSettings["AppId"];
+                var appId = Deepleo.Web.WeixinConfig.Readconfigini("AppId");
                 var nonceStr = Util.CreateNonce_str();
                 var timestamp = Util.CreateTimestamp();
                 var success_redict_url = string.Format("{0}/WxPay/Success", domain);
@@ -136,7 +136,7 @@ namespace Deepleo.Web.Controllers
         /// 支付完成后，微信会把相关支付结果和用户信息发送给商户，商户需要接收处理，并返回应答。 
         /// 对后台通知交互时，如果微信收到商户的应答不是成功或超时，微信认为通知失败，微信会通过一定的策略（如30分钟共8次）定期重新发起通知，尽可能提高通知的成功率，但微信不保证通知最终能成功。 
         /// 由于存在重新发送后台通知的情况，因此同样的通知可能会多次发送给商户系统。商户系统必须能够正确处理重复的通知。 
-        /// 推荐的做法是，当收到通知进行处理时，首先检查对应业务数据的状态，判断该通知是否已经处理过，如果没有处理过再进行处理，如果处理过直接返回结果成功。在对业务数据进行状态检查和处理之前，要采用数据锁进行并发控制，以避免函数重入造成的数据混乱。 
+        /// 的做法是，当收到通知进行处理时，首先检查对应业务数据的状态，判断该通知是否已经处理过，如果没有处理过再进行处理，如果处理过直接返回结果成功。在对业务数据进行状态检查和处理之前，要采用数据锁进行并发控制，以避免函数重入造成的数据混乱。 
         /// 技术人员可登进微信商户后台扫描加入接口报警群。 
         /// </summary>
         /// <returns></returns>

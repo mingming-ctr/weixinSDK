@@ -21,7 +21,7 @@ namespace Deepleo.Web.Controllers
 
             var nonceStr = Util.CreateNonce_str();
             var timestamp = Util.CreateTimestamp();
-            var domain = System.Configuration.ConfigurationManager.AppSettings["Domain"];
+            var domain = Deepleo.Web.WeixinConfig.Readconfigini("Domain");
             var url = domain + Request.Url.PathAndQuery;
             var jsTickect = "";
             using (CommanderServiceClient client = new CommanderServiceClient())

@@ -26,3 +26,11 @@ obj/
 _ReSharper*/
 WeixinSDK.suo
 WeixinSDK.suo
+
+#忽略Visual Studio生成时的产生的文件
+*.sqlite
+*.v5
+*.v2
+*.vsidx
+Deepleo.Web/Web.config
+Deepleo.Web/config.ini

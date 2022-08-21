@@ -15,7 +15,7 @@ namespace Deepleo.Web.Attribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            var domain = System.Configuration.ConfigurationManager.AppSettings["Domain"];
+            var domain = Deepleo.Web.WeixinConfig.Readconfigini("Domain");
             var target_uri = filterContext.RequestContext.HttpContext.Request.Url.PathAndQuery;
             var identity = filterContext.HttpContext.User.Identity;
             if (!identity.IsAuthenticated)
