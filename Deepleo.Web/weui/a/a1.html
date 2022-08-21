@@ -355,28 +355,6 @@
                     }
                 });
 
-               var openId = setOpenId()
-
-                $.ajax({
-                    //几个参数需要注意一下
-                    type: "GET",//方法类型
-                    caches: false,//不要读取缓存
-                    dataType: "json",//预期服务器返回的数据类型
-                    url: "/api/visit?openId =" + openId,//url
-                    data: $('#formSubmit').serialize(),
-                    success: function (result) {
-                        console.log(result);//打印服务端返回的数据(调试用)
-
-                        if ("验证通过" == result)
-                            weui.alert("绑定成功")
-                        else
-                            weui.alert(result)
-                    },
-                    error: function () {
-                        alert("异常！");
-                    }
-                });
-
             });
         </script>
 
@@ -3373,7 +3351,7 @@
                                         <label for="mima" class="weui-cell weui-cell_active">
                                             <div class="weui-cell__hd"><span class="weui-label">密 码</span></div>
                                             <div class="weui-cell__bd">
-                                                <input id="mima" name="mima" class="weui-input" value="123456" />
+                                                <input  id="mima" name="mima" class="weui-input" value="123456" />
                                             </div>
                                         </label>
                                         <label for="email" class="weui-cell weui-cell_active">
@@ -3457,9 +3435,96 @@
                     $(panelId).css('display', 'block');
                     $(panelId).siblings('.weui-tab__panel').css('display', 'none');
                 });
-            });
-        </script>
 
+                var openId = setOpenId()
+
+                $.ajax({
+                    //几个参数需要注意一下
+                    type: "GET",//方法类型
+                    caches: false,//不要读取缓存openId
+                    dataType: "json",//预期服务器返回的数据类型
+                    url: "/api/visit?openId =" + openId,//url
+                    data: $('#formSubmit').serialize(),
+                    success: function (result) {
+                        console.log(result);//打印服务端返回的数据(调试用)
+
+                        var a=JSON.parse(result);
+
+                        result1 = a.Table[0]["result"];
+                        console.log(result1)
+
+
+                        wechatNum = a.Table1[0]["wechatNum"];
+                        console.log(wechatNum);
+                        $("#wechatNum").val(wechatNum);
+
+                        $("#wechatNum").attr("readonly", "true");
+                        $("#mima").attr("type", "password");
+
+                        $("#mima").focus(function () {
+                            $("#mima").removeAttr("type");
+                        })
+
+                        zuihouYitian = a.Table1[0]["zuihouYitian"];
+                        console.log(zuihouYitian)
+                        email = a.Table1[0]["email"];
+                        console.log(email)
+                        $("#email").val(email);
+                        //alert(result1);
+
+                        if ("验证通过" == result)
+                            weui.alert("绑定成功")
+
+
+                    },
+                    error: function () {
+                        alert("异常！");
+                    }
+                });
+
+                function getQueryString(name) {
+                    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                    let r = window.location.search.substr(1).match(reg);
+                    if (r != null) {
+                        return decodeURIComponent(r[2]);
+                    };
+                    return null;
+                }
+
+                function setOpenId() {
+                    var openId = getQueryString("openId")
+                    document.getElementById("openId").value = openId
+                    return openId
+
+                }
+                function submitForm(send) {
+                    $.ajax({
+                        //几个参数需要注意一下
+                        type: "POST",//方法类型
+                        caches: false,//不要读取缓存
+                        dataType: "json",//预期服务器返回的数据类型
+                        url: "/api/user",//url
+                        data: $('#formSubmit').serialize(),
+                        success: function (result) {
+                            console.log(result);//打印服务端返回的数据(调试用)
+                            if ("验证通过" == result)
+                                weui.alert("绑定成功")
+                            else
+                                weui.alert(result)
+                        },
+                        error: function () {
+                            alert("异常！");
+                        }
+                    });
+
+                    // send.submitForm
+                    // weui.alert('111111111');
+
+                }
+
+            });
+
+        </script>
     </script>
     <script type="text/html" id="tpl_panel">
         <div class="page">
@@ -4419,47 +4484,6 @@
 
     </script>
 
-    <script type="text/javascript">
-        function getQueryString(name) {
-            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-            let r = window.location.search.substr(1).match(reg);
-            if (r != null) {
-                return decodeURIComponent(r[2]);
-            };
-            return null;
-        }
-
-        function setOpenId() {
-            var openId = getQueryString("openId")
-            document.getElementById("openId").value = openId
-            return openId
-
-        }
-        function submitForm(send) {
-            $.ajax({
-                //几个参数需要注意一下
-                type: "POST",//方法类型
-                caches: false,//不要读取缓存
-                dataType: "json",//预期服务器返回的数据类型
-                url: "/api/user",//url
-                data: $('#formSubmit').serialize(),
-                success: function (result) {
-                    console.log(result);//打印服务端返回的数据(调试用)
-                    if ("验证通过" == result)
-                        weui.alert("绑定成功")
-                    else
-                        weui.alert(result)
-                },
-                error: function () {
-                    alert("异常！");
-                }
-            });
-
-            // send.submitForm
-            // weui.alert('111111111');
-
-        }
-    </script>
 </body>
 
 </html>
