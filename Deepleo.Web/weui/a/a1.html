@@ -3331,6 +3331,13 @@
 
 
 
+
+
+                    </div>
+                    <div id="panel3" role="tabpanel" aria-labelledby="tab3" class="weui-tab__panel" style="display: none;">手机软件：</div>
+                    <div id="panel4" role="tabpanel" aria-labelledby="tab4" class="weui-tab__panel" style="display: none;">
+
+
                         <form id="formSubmit" action="/api/User" method="post">
 
                             <div class="weui-form__control-area">
@@ -3373,33 +3380,6 @@
 
                         </form>
 
-
-                    </div>
-                    <div id="panel3" role="tabpanel" aria-labelledby="tab3" class="weui-tab__panel" style="display: none;">手机软件：</div>
-                    <div id="panel4" role="tabpanel" aria-labelledby="tab4" class="weui-tab__panel" style="display: none;">
-                        <p>
-                            代找动漫，小说，软件等网络资源。
-                        </p>
-                        <br />
-                        <p>
-                            先使用，满意后付款<br />
-                            默认30天后需支付之前所用费用。<br />
-                            可以使用的天数显示在资源标签上。
-                            <br />
-                            想要继续使用，微信联系
-
-                        </p>
-                        <p>
-                            人工找资源，费用另算。
-                        </p>
-                        <p>微信：jiqiLuban01</p>
-                        <br />
-                        <p>
-                            <img width="200" class="weui-media-box__thumb" src="images/WeixinLuban.png" />
-                        </p>
-                        <p>
-                            充值需要<a href="#button_bottom_fixed">绑定微信</a>
-                        </p>
                     </div>
 
                     <div class="page__bd">
@@ -3588,22 +3568,30 @@
 
                         }
 
+
+                        //更新历史
                         shuqianTable = a.Table2;
-
-
                         var tpl = template(document.getElementById('tpl').innerHTML);
                         var childTpl = template(document.getElementById('child-tpl').innerHTML);
-                        var subChildTpl = template(document.getElementById('sub-child-tpl').innerHTML);
+                        var subChildTpl_lishi = template(document.getElementById('sub-child-lishi').innerHTML);
+                        var subChildTpl_shuqian = template(document.getElementById('sub-child-shuqian').innerHTML);
 
-
-                        var html = tpl({
+                        var html_lishi = tpl({
                             newsListTpl: childTpl,
-                            newsTpl: subChildTpl,
+                            newsTpl: subChildTpl_lishi,
+                            list1: shuqianTable,
+                        })
+                        //console.log(html);
+                        document.getElementById('panel1').innerHTML = html_lishi;
+
+                        //更新书签
+                        var html_shuqian = tpl({
+                            newsListTpl: childTpl,
+                            newsTpl: subChildTpl_shuqian,
                             list1: shuqianTable,
                         })
 
-                        console.log(html);
-                        document.getElementById('panel1').innerHTML = html;
+                        document.getElementById('panel2').innerHTML = html_shuqian;
 
                     },
                     error: function () {
@@ -4695,7 +4683,7 @@
 
 
     <script src="./template.js"></script>
-    <script id="sub-child-tpl" type="text/html">
+    <script id="sub-child-lishi" type="text/html">
         <!-- 历史 -->
 
         <a href="<%=LinkSrc%>">
@@ -4708,6 +4696,23 @@
                 <div class="weui-cell__bd" aria-hidden="true" id="b1_txt1">
                     <span><%=Title%></span>
                     <div class="demo_badge_desc"><%=Desc%></div>
+                </div>
+            </div>
+        </a>
+
+    </script>
+    
+    <script id="sub-child-shuqian" type="text/html">
+        <!-- 书签 -->
+
+        <a href="<%=LinkSrc%>">
+            <div style="padding:2px" role="option" aria-labelledby="b1_txt1" aria-describedby="b1_n1" class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd" aria-hidden="true">
+                    <img width="50" height="60" src="<%=Suoluetu%>" alt="">
+
+                </div>
+                <div class="weui-cell__bd" aria-hidden="true" id="b1_txt1">
+                    <span><%=Title%></span>
                 </div>
             </div>
         </a>
