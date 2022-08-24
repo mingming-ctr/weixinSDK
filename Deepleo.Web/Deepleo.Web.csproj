@@ -159,6 +159,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\css\jssdk\style.css" />
+    <Content Include="template\demo\basic.html" />
+    <Content Include="template\demo\child-template.html" />
+    <Content Include="template\demo\config.html" />
+    <Content Include="template\demo\js\require.js" />
+    <Content Include="template\demo\node\main.js" />
+    <Content Include="template\demo\registerFunction.html" />
+    <Content Include="template\demo\registerModifier.html" />
+    <Content Include="template\demo\requirejs.html" />
+    <Content Include="template\template.js" />
     <Content Include="weui\a\a1.html" />
     <Content Include="weui\a\example.css" />
     <Content Include="weui\a\example.js" />
@@ -184,6 +193,7 @@
     <Content Include="weui\a\a.html" />
     <Content Include="weui\a\images\ZhifubaoPay.jpg" />
     <Content Include="weui\a\index1.html" />
+    <Content Include="weui\a\template.js" />
     <Content Include="weui\a\wah.js" />
     <Content Include="weui\a\zepto.min.js" />
     <Content Include="weui\style\weui.css" />

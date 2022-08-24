@@ -128,7 +128,7 @@ SELECT *
   where openId='{0}'
  ;
 
-
+select * from Shuqian
 
  ;
 

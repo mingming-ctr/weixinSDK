@@ -8,6 +8,8 @@
     <title>代找资源</title>
     <link rel="stylesheet" href="../style/weui.css" />
     <link rel="stylesheet" href="./example.css" />
+
+
 </head>
 
 <body ontouchstart>
@@ -3319,34 +3321,9 @@
 
 
 
-                        <a href="https://v.qq.com/x/cover/m441e3rjq9kwpsc/m0025m9timl.html">
-                            <div role="option" aria-labelledby="b1_txt1" aria-describedby="b1_n1" class="weui-cell weui-cell_active">
-                                <div class="weui-cell__hd" aria-hidden="true">
-                                    <img width="50" height="60" src="https://puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1659888257747/260" alt="">
-
-                                    <span id="b1_n1" class="weui-badge" style="position: absolute; top: 10px; left: 50px;" aria-label="，8个新通知">8</span>
-                                </div>
-                                <div class="weui-cell__bd" aria-hidden="true" id="b1_txt1">
-                                    <span>斗罗大陆</span>
-                                    <div class="demo_badge_desc">腾讯视频</div>
-                                </div>
-                            </div>
-                        </a>
 
 
 
-
-                        <p>阿里云盘</p>
-                        <p>
-                            「pdd」https://www.aliyundrive.com/s/ZVodvrfLrzT
-                            点击链接保存，或者复制本段内容，打开「阿里云盘」APP ，无需下载极速在线查看，视频原画倍速播放。
-                        </p>
-                        <br />
-                        <p>百度网盘</p>
-                        <p>
-                            链接：https://pan.baidu.com/s/1HprISeztKUwk_mbFGiGOmA?pwd=bicw
-                            提取码：bicw
-                        </p>
 
 
                     </div>
@@ -3468,6 +3445,35 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <div id="dialogWrap5" class="js_dialog_wrap" ref="showDialog5" aria-labelledby="js_title5" role="dialog" aria-modal="false" aria-hidden="true" style="display: none;">
+                            <div id="js_close" class="js_close weui-mask"></div>
+                            <div id="js_dialog_5" class="js_dialog weui-half-screen-dialog weui-half-screen-dialog_slide">
+                                <div class="weui-half-screen-dialog__hd">
+                                    <div id="js_line" class="weui-half-screen-dialog__slide-icon">
+                                        <i id="js_arrow" class="weui-icon-arrow"></i>
+                                    </div>
+                                </div>
+                                <div class="weui-half-screen-dialog__bd">
+                                    <br>
+                                    <br>
+                                    <div class="button-sp-area">
+                                        <a href="javascript:" role="button" style="float:right;" class="weui-btn weui-btn_mini weui-btn_default weui-wa-hotarea">按钮</a>
+
+                                        <div class="weui-uploader__input-box" style="width:50px;height:32px;align:right">
+                                            <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple />
+                                        </div>
+
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
                         <div class="weui-search-bar" id="searchBar">
                             <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
                                 <div class="weui-search-bar__box">
@@ -3481,7 +3487,7 @@
                                 </label>
                             </form>
                             <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
-                            <a href="javascript:" role="button" class="weui-add-btn" id="add-btn"><font color="black" size=6>&nbsp;&nbsp;⊕&nbsp;</font></a>
+                            <a href="javascript:" role="button" class="weui-add-btn" id="showDialog5"><font color="black" size=6>&nbsp;&nbsp;⊕&nbsp;</font></a>
                         </div>
                     </div>
                     <div role="tablist" aria-label="选项卡标题" class="weui-tabbar">
@@ -3490,11 +3496,11 @@
                                 <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
                                 <span class="weui-badge" style="position: absolute; top: -2px; right: -13px;">8</span>
                             </div>
-                            <p id="t1_title" aria-hidden="true" class="weui-tabbar__label">资源</p>
+                            <p id="t1_title" aria-hidden="true" class="weui-tabbar__label">历史</p>
                         </div>
                         <div id="tab2" role="tab" aria-labelledby="t2_title" aria-selected="false" aria-controls="panel2" class="weui-tabbar__item">
                             <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-                            <p aria-hidden="true" id="t2_title" class="weui-tabbar__label">绑定</p>
+                            <p aria-hidden="true" id="t2_title" class="weui-tabbar__label">书签</p>
                         </div>
                         <div id="tab3" role="tab" aria-labelledby="t3_title" aria-describedby="t3_tips" aria-selected="false" aria-controls="panel3" class="weui-tabbar__item">
                             <div id="t3_tips" aria-hidden="true" style="display: inline-block; position: relative;">
@@ -3505,13 +3511,14 @@
                         </div>
                         <div id="tab4" role="tab" aria-labelledby="t4_title" aria-selected="false" aria-controls="panel4" class="weui-tabbar__item">
                             <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-                            <p class="weui-tabbar__label" aria-hidden="true" id="t4_title">作者</p>
+                            <p class="weui-tabbar__label" aria-hidden="true" id="t4_title">我</p>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
+
         <script type="text/javascript">
             $(function () {
                 $('.weui-tabbar__item').on('click', function () {
@@ -3534,7 +3541,7 @@
                     success: function (result) {
                         console.log(result);//打印服务端返回的数据(调试用)
 
-                        var a=JSON.parse(result);
+                        var a = JSON.parse(result);
 
                         result1 = a.Table[0]["result"];
                         console.log(result1)
@@ -3577,11 +3584,26 @@
                             console.log(email)
                             $("#email").val(email);
                             $("#formSubmitBtn").text("更新")
-                        //alert(result1);
+                            //alert(result1);
 
                         }
 
+                        shuqianTable = a.Table2;
 
+
+                        var tpl = template(document.getElementById('tpl').innerHTML);
+                        var childTpl = template(document.getElementById('child-tpl').innerHTML);
+                        var subChildTpl = template(document.getElementById('sub-child-tpl').innerHTML);
+
+
+                        var html = tpl({
+                            newsListTpl: childTpl,
+                            newsTpl: subChildTpl,
+                            list1: shuqianTable,
+                        })
+
+                        console.log(html);
+                        document.getElementById('panel1').innerHTML = html;
 
                     },
                     error: function () {
@@ -3643,13 +3665,14 @@
                 $("#formSubmitBtn").click(function (event) {
                     /* Act on the event */
                     submitForm();
-});
+                });
 
 
 
                 //搜索
                 var $searchBar = $('#searchBar'),
                     $searchResult = $('#searchResult'),
+                    $showDialog5 = $('#showDialog5'),
                     $searchText = $('#searchText'),
                     $searchInput = $('#searchInput'),
                     $searchClear = $('#searchClear'),
@@ -3658,6 +3681,7 @@
 
                 function hideSearchResult() {
                     $searchResult.hide();
+                    $showDialog5.show();
                     $searchForm.attr('aria-expanded', 'false');
                     $searchInput.val('');
                 }
@@ -3671,6 +3695,7 @@
                     $searchBar.addClass('weui-search-bar_focusing');
                     $searchInput.focus();
                 });
+
                 $searchInput
                     .on('blur', function () {
                         if (!this.value.length) cancelSearch();
@@ -3678,9 +3703,11 @@
                     .on('input', function () {
                         if (this.value.length) {
                             $searchResult.show();
+                            $showDialog5.hide();
                             $searchForm.attr('aria-expanded', 'true');
                         } else {
                             $searchResult.hide();
+                            $showDialog5.show();
                             $searchForm.attr('aria-expanded', 'false');
                         }
                     })
@@ -3695,8 +3722,98 @@
                 });
 
                 cancelSearch();
-            });
 
+
+                //添加按钮
+
+                const $dialog5 = $('#js_dialog_5');
+                const $dialogWrap5 = $('#dialogWrap5');
+
+
+                function closeDialog(o) {
+                    const $jsDialogWrap = o.parents('.js_dialog_wrap');
+                    $jsDialogWrap.attr('aria-hidden', 'true').attr('aria-modal', 'false').removeAttr('tabindex');
+                    $jsDialogWrap.fadeOut(300);
+                    $jsDialogWrap.find('.js_dialog').removeClass('weui-half-screen-dialog_show');
+                    setTimeout(function () {
+                        $('#' + $jsDialogWrap.attr('ref')).trigger('focus');
+                    }, 300);
+                }
+
+                $('#showDialog5').on('click', function () {
+                    $dialogWrap5.fadeIn(200);
+                    js_line.style.height = 4 + 'px';
+                    js_line.style.borderRadius = 2 + 'px';
+                    js_arrow.style.opacity = 0;
+                    $dialog5.addClass('weui-half-screen-dialog_show');
+                    $dialog5.css('transform', 'translate3d(0, 0, 0)');
+                    setTimeout(function () {
+                        $dialogWrap5.attr('aria-hidden', 'false');
+                        $dialogWrap5.attr('aria-modal', 'true');
+                        $dialogWrap5.attr('tabindex', '0');
+                        $dialogWrap5.trigger('focus');
+                    }, 200)
+                });
+
+                $('#js_close').on('click', function () {
+                    closeDialog($(this));
+                    $dialog5.css('transform', 'translate3d(0, 100%, 0)');
+                });
+
+
+                var dialog_5 = document.getElementById('js_dialog_5');
+                var js_line = document.getElementById('js_line');
+                var js_arrow = document.getElementById('js_arrow');
+                var start = 0
+                var end = 0
+
+                dialog_5.addEventListener('touchstart', function (e) {
+                    start = e.changedTouches[0].clientY;
+                })
+
+                dialog_5.addEventListener('touchmove', function (e) {
+                    var move = e.changedTouches[0].clientY - start;
+                    if (move > 0) {
+                        dialog_5.style.transform = 'translate3d(0, ' + move + 'px, 0)';
+
+                        var percent = move / 56;
+                        percent = percent > 1 ? 1 : percent;
+                        js_line.style.height = 4 + (16 - 4) * percent + 'px';
+                        js_line.style.borderRadius = 2 + (12 - 2) * percent + 'px';
+
+                        if (percent >= 0.5) {
+                            var pear = (percent - 0.5) / 0.5;
+                            js_arrow.style.opacity = pear;
+                        }
+                    } else {
+                        dialog_5.style.transform = 'translate3d(0,0,0)';
+                        js_line.style.height = 4 + 'px';
+                        js_line.style.borderRadius = 2 + 'px';
+                        js_arrow.style.opacity = 0;
+                    }
+                })
+
+                dialog_5.addEventListener('touchend', function (e) {
+                    var move = e.changedTouches[0].clientY - start;
+                    end = move;
+                    var max = 56;
+                    dialog_5.style.transition = 'transform .3s';
+
+                    if (end < max) {
+                        dialog_5.style.transform = 'translate3d(0,0,0)';
+                        js_line.style.height = 4 + 'px';
+                        js_line.style.borderRadius = 2 + 'px';
+                        js_arrow.style.opacity = 0;
+                        end = 0;
+                    } else if (end >= max) {
+                        closeDialog($(this));
+                        dialog_5.style.transform = 'translate3d(0,100%,0)';
+                    }
+                })
+
+
+
+            });
 
 
         </script>
@@ -4560,6 +4677,40 @@
                 }
             });
         });
+
+    </script>
+
+
+    <script id="tpl" type="text/html">
+        <%:=newsListTpl({list: list1, newsTpl: newsTpl})%>
+    </script>
+
+    <script id="child-tpl" type="text/html">
+        <ul>
+            <%list.forEach(function (news) {%>
+            <%:=newsTpl(news)%>
+            <%})%>
+        </ul>
+    </script>
+
+
+    <script src="./template.js"></script>
+    <script id="sub-child-tpl" type="text/html">
+        <!-- 历史 -->
+
+        <a href="<%=LinkSrc%>">
+            <div style="padding:2px" role="option" aria-labelledby="b1_txt1" aria-describedby="b1_n1" class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd" aria-hidden="true">
+                    <img width="50" height="60" src="<%=Suoluetu%>" alt="">
+
+                    <span id="b1_n1" class="weui-badge" style="position: absolute; top: 10px; left: 50px;" aria-label="，<%=GengxinCishu%>个新通知"><%=GengxinCishu%></span>
+                </div>
+                <div class="weui-cell__bd" aria-hidden="true" id="b1_txt1">
+                    <span><%=Title%></span>
+                    <div class="demo_badge_desc"><%=Desc%></div>
+                </div>
+            </div>
+        </a>
 
     </script>
 
