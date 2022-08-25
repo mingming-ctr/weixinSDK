@@ -3440,7 +3440,7 @@
                                     <br>
                                     <br>
                                     <div class="button-sp-area">
-                                        <a href="javascript:" role="button" style="float:right;" class="weui-btn weui-btn_mini weui-btn_default weui-wa-hotarea">按钮</a>
+                                        <a id="btn_addShuqian" href="/weui/a/Shuqian.html" role="button" style="float:right;" class="weui-btn weui-btn_mini weui-btn_default weui-wa-hotarea">添加</a>
 
                                         <div class="weui-uploader__input-box" style="width:50px;height:32px;align:right">
                                             <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple />
@@ -4644,6 +4644,7 @@
     <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
     <script src="./example.js"></script>
     <script src="./wah.js"></script>
+    <script src="../a/mycommon.js"></script>
     <script type="text/javascript">
         //WAH.default.init()
     </script>
@@ -4705,7 +4706,7 @@
     <script id="sub-child-shuqian" type="text/html">
         <!-- 书签 -->
 
-        <a href="<%=Lianjie%>">
+        <a href="/weui/a/Shuqian.html?ID=<%=ID%>">
             <div style="padding:2px" role="option" aria-labelledby="b1_txt1" aria-describedby="b1_n1" class="weui-cell weui-cell_active">
                 <div class="weui-cell__hd" aria-hidden="true">
                     <img width="50" height="60" src="<%=Suoluetu%>" alt="">

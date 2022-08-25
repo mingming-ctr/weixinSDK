@@ -29,8 +29,11 @@ namespace Deepleo.Web.Controllers
         }
 
         // POST api/shuqian
-        public void Post([FromBody]string value)
+        public string Post([FromBody]ShuqianModel p)
         {
+            DataSet ds = ShuqianManager.CreateShuqian(p);
+            string json = JsonConvert.SerializeObject(ds, Formatting.Indented);
+            return json;
         }
 
         // PUT api/shuqian/5

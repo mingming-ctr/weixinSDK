@@ -25,19 +25,17 @@ SELECT case when @Biaoti==''
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
 
-INSERT INTO Shuqian (
+INSERT INTO Shuqian (  
                         Biaoti,
                         [Miaoshu],
                         Lianjie,
-                        Suoluetu,
-                        GengxinCishu
+                        Suoluetu
                     )
                     VALUES (
                         @Biaoti,
                         @Miaoshu,
                         @Lianjie,
-                        @Suoluetu,
-                        @GengxinCishu
+                        @Suoluetu
                     );
 
 SELECT *

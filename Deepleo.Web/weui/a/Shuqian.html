@@ -60,17 +60,23 @@
     <script src="./zepto.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+    <script src="./mycommon.js"></script>
     <script>
 
         function get() {
+            var ID = $.fn.getUrlParam("ID");
 
+            var url = "/api/Shuqian/" + ID;
+            //alert(url)
+            if (ID == null)
+                return;
 
             $.ajax({
                 //几个参数需要注意一下
                 type: "GET",//方法类型
                 caches: false,//不要读取缓存openId
                 dataType: "json",//预期服务器返回的数据类型
-                url: "/api/Shuqian/1",//url
+                url: url,//url
                 success: function (result) {
                     console.log(result);//打印服务端返回的数据(调试用)
 
@@ -146,6 +152,7 @@
         $(function () {
             get();
             $("#formSubmitBtn").click(function () {
+         
                 update();
             })
         })
