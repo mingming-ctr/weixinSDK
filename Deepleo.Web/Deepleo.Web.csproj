@@ -128,6 +128,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JSSDKController.cs" />
     <Compile Include="Controllers\OAuthController.cs" />
+    <Compile Include="Controllers\ShuqianController.cs" />
     <Compile Include="Controllers\SQController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VisitController.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShuqianModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VisitModel.cs" />
     <Compile Include="Models\JSSDKModel.cs" />
@@ -146,6 +148,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\SQLiteHelper.cs" />
+    <Compile Include="Services\ShuqianManager.cs" />
     <Compile Include="Services\UserManager.cs" />
     <Compile Include="Services\AuthorizationManager.cs" />
     <Compile Include="Services\LogWriter.cs" />
