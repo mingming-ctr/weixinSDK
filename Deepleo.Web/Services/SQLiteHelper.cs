@@ -43,10 +43,10 @@ namespace Deepleo.Web.Services
             string[] sep=new string[1];
             sep[0] = "---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------";
             string sqlVerify = cmdText.Split(sep, StringSplitOptions.RemoveEmptyEntries)[0];
-            DataSet ds =ExecuteQuery(sqlVerify);
+            DataSet ds =ExecuteQuery(sqlVerify,p);
             if ("验证通过" == ds.Tables[0].Rows[0][0].ToString())
             {
-                ds = ExecuteQuery(cmdText);
+                ds = ExecuteQuery(cmdText,p);
             }
             return ds;
         }

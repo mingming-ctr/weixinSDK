@@ -19,23 +19,23 @@ namespace Deepleo.Web.Services
                 @"
 
 
-SELECT case when @Title==''
+SELECT case when @Biaoti==''
             then '标签名称必须输入'  
             else '验证通过' end AS result;
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
 
 INSERT INTO Shuqian (
-                        Title,
-                        [Desc],
-                        LinkSrc,
+                        Biaoti,
+                        [Miaoshu],
+                        Lianjie,
                         Suoluetu,
                         GengxinCishu
                     )
                     VALUES (
-                        @Title,
-                        @Desc,
-                        @LinkSrc,
+                        @Biaoti,
+                        @Miaoshu,
+                        @Lianjie,
                         @Suoluetu,
                         @GengxinCishu
                     );
@@ -46,38 +46,47 @@ SELECT *
  ;
 
 ";
+            List<SQLiteParameter> ls = getPara(p);
 
-            List< SQLiteParameter> ls = new List< SQLiteParameter>();
+            DataSet ds = SQLiteHelper.ExecuteQueryVerify(sqlFmt, ls.ToArray());
+            return ds;
 
-            var Title = new SQLiteParameter("@Title", DbType.String);
-            Title.Value = p.Title;
-            ls.Add(Title);
 
-            var Desc = new SQLiteParameter("@Desc", DbType.String);
-            Desc.Value = p.Desc;
-            ls.Add(Desc);
+        }
+
+        private static List<SQLiteParameter> getPara(ShuqianModel p)
+        {
+            List<SQLiteParameter> ls = new List<SQLiteParameter>();
+
+            var ID = new SQLiteParameter("@ID", DbType.String);
+            ID.Value = p.ID;
+            ls.Add(ID);
             
+            var Biaoti = new SQLiteParameter("@Biaoti", DbType.String);
+            Biaoti.Value = p.Biaoti;
+            ls.Add(Biaoti);
 
-            var LinkSrc = new SQLiteParameter("@LinkSrc", DbType.String);
-            LinkSrc.Value = p.LinkSrc;
-            ls.Add(LinkSrc);
-            
+            var Miaoshu = new SQLiteParameter("@Miaoshu", DbType.String);
+            Miaoshu.Value = p.Miaoshu;
+            ls.Add(Miaoshu);
+
+
+            var Lianjie = new SQLiteParameter("@Lianjie", DbType.String);
+            Lianjie.Value = p.Lianjie;
+            ls.Add(Lianjie);
+
 
             var Suoluetu = new SQLiteParameter("@Suoluetu", DbType.String);
             Suoluetu.Value = p.Suoluetu;
             ls.Add(Suoluetu);
-            
+
 
             var GengxinCishu = new SQLiteParameter("@GengxinCishu", DbType.String);
             GengxinCishu.Value = p.GengxinCishu;
             ls.Add(GengxinCishu);
-            
-            DataSet ds = SQLiteHelper.ExecuteQueryVerify(sqlFmt,ls.ToArray());
-                return ds;
-
-
+            return ls;
         }
-        
+
         public static DataSet UpdateShuqian(ShuqianModel p)
         {
 
@@ -85,29 +94,31 @@ SELECT *
                 @"
 
 
-SELECT case when '{0}'==''
-           then '微信号必须输入'  
-            when '{1}'==''
-           then '必须通过微信公众号完成绑定'  
-           else '验证通过' end AS result;
+SELECT case when @Biaoti==''
+            then '标题必须输入'  
+            else '验证通过' end AS result;
+
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
 
-update Shuqian
-set 
-    mima='{2}',
-    email='{3}'
-    where openId='{1}';
+UPDATE Shuqian
+   SET 
+       Biaoti = @Biaoti,
+       Miaoshu = @Miaoshu,
+       Lianjie = @Lianjie,
+       Suoluetu = @Suoluetu
+ WHERE ID = @ID ;
+
                   
 SELECT *
   FROM Shuqian
-  where id =last_insert_rowid()
+  where id =@ID
  ;
 
 ";
-          
 
-            DataSet ds = SQLiteHelper.ExecuteQueryVerify(sqlFmt);
+            List<SQLiteParameter> ls = getPara(p);
+            DataSet ds = SQLiteHelper.ExecuteQueryVerify(sqlFmt,ls.ToArray());
                 return ds;
 
 

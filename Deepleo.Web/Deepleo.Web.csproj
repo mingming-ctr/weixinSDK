@@ -196,6 +196,7 @@
     <Content Include="weui\a\a.html" />
     <Content Include="weui\a\images\ZhifubaoPay.jpg" />
     <Content Include="weui\a\index1.html" />
+    <Content Include="weui\a\Shuqian.html" />
     <Content Include="weui\a\template.js" />
     <Content Include="weui\a\wah.js" />
     <Content Include="weui\a\zepto.min.js" />

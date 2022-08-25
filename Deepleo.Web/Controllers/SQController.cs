@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System;
 using System.Data.SQLite;
+using Deepleo.Web.Services;
 
 namespace Deepleo.Web.Controllers
 {
@@ -18,7 +19,18 @@ namespace Deepleo.Web.Controllers
 
         public ActionResult Index()
         {
-            SQLiteSamples.Program.Main();
+//            string sql = @"
+
+//SELECT case when @Biaoti==''
+//            then '标题必须输入'  
+//            else '验证通过' end AS result;
+
+//";
+
+//            var Biaoti=new SQLiteParameter(
+
+//            SQLiteHelper.ExecuteQueryVerify(sql,);
+            //SQLiteSamples.Program.Main();
             return View();
         }
 

@@ -10,12 +10,12 @@ namespace Deepleo.Web.Models
     {
 
         public string ID { set; get; }
-        public string Title { set; get; }
-        public string Desc { set; get; }
-        public string LinkSrc { set; get; }
+        public string Biaoti { set; get; }
+        public string Miaoshu { set; get; }
+        public string Lianjie { set; get; }
         public string Suoluetu { set; get; }
         public int GengxinCishu { set; get; }
-        public DateTime CreateAt { set; get; }
+        public DateTime ChuangjianShijian { set; get; }
 
 
 //        ID Title   Desc LinkSrc Suoluetu CreateAt    GengxinCishu

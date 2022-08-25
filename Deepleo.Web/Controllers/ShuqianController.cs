@@ -1,4 +1,5 @@
-﻿using Deepleo.Web.Services;
+﻿using Deepleo.Web.Models;
+using Deepleo.Web.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -33,8 +34,11 @@ namespace Deepleo.Web.Controllers
         }
 
         // PUT api/shuqian/5
-        public void Put(int id, [FromBody]string value)
+        public string Put(int ID, [FromBody]ShuqianModel p)
         {
+            DataSet ds = ShuqianManager.UpdateShuqian(p);
+            string json = JsonConvert.SerializeObject(ds, Formatting.Indented);
+            return json;
         }
 
         // DELETE api/shuqian/5
