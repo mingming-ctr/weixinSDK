@@ -31,7 +31,7 @@ SELECT case when '{0}'==''
            when EXISTS (
                SELECT *
                  FROM user
-                WHERE wechatNum = '{0}'
+                WHERE weixinhao = '{0}'
            )
            then '请确认是否是自己的微信号' 
            else '验证通过' end AS result;
@@ -40,7 +40,7 @@ SELECT case when '{0}'==''
 
 
 INSERT INTO User (
-                      wechatNum,
+                      weixinhao,
                       openId,
                       mima,
                       email
@@ -60,7 +60,7 @@ SELECT *
 
 ";
           
-            string sql = string.Format(sqlFmt, p.wechatNum, p.openId,p.mima,p.email);
+            string sql = string.Format(sqlFmt, p.weixinhao, p.openId,p.mima,p.email);
             DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
                 return ds;
 
@@ -95,7 +95,7 @@ SELECT *
 
 ";
           
-            string sql = string.Format(sqlFmt, p.wechatNum, p.openId,p.mima,p.email);
+            string sql = string.Format(sqlFmt, p.weixinhao, p.openId,p.mima,p.email);
             DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
                 return ds;
 

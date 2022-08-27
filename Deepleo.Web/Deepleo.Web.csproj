@@ -162,6 +162,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\css\jssdk\style.css" />
+    <Content Include="DPlayer\demo.css" />
+    <Content Include="DPlayer\demo.js" />
+    <Content Include="DPlayer\DPlayer.js" />
+    <Content Include="DPlayer\index.html" />
+    <Content Include="DPlayer\me\start.html" />
+    <Content Include="DPlayer\modernizr.js" />
     <Content Include="template\demo\basic.html" />
     <Content Include="template\demo\child-template.html" />
     <Content Include="template\demo\config.html" />
@@ -209,6 +215,7 @@
     <Content Include="Images\WePayLogo.png" />
     <Content Include="LogWriterConfig.xml" />
     <Content Include="Scripts\jssdk\demo.js" />
+    <Content Include="DPlayer\DPlayer.js.map" />
     <None Include="Service References\CommandServiceReference\CommanderService.wsdl" />
     <None Include="Service References\CommandServiceReference\item.disco" />
     <None Include="Service References\CommandServiceReference\configuration91.svcinfo" />

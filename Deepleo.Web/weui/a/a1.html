@@ -3344,11 +3344,11 @@
                                 <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
                                     <div class="weui-cells__title">请填写</div>
                                     <div class="weui-cells">
-                                        <label for="wechatNum" class="weui-cell weui-cell_active">
+                                        <label for="weixinhao" class="weui-cell weui-cell_active">
                                             <div class="weui-cell__hd"><span class="weui-label">微信号</span></div>
                                             <div class="weui-cell__bd">
                                                 <input type="hidden" id="openId" name="openId" value="123" />
-                                                <input id="wechatNum" name="wechatNum" class="weui-input" placeholder="填写本人微信号" />
+                                                <input id="weixinhao" name="weixinhao" class="weui-input" placeholder="填写本人微信号" />
                                             </div>
                                         </label>
                                         <label for="mima" class="weui-cell weui-cell_active">
@@ -3537,10 +3537,10 @@
                         }
 
                         if ("验证通过" == result1) {
-                            wechatNum = a.Table1[0]["wechatNum"];
-                            console.log(wechatNum);
-                            $("#wechatNum").val(wechatNum);
-                            $("#wechatNum").attr("readonly", "true");
+                            weixinhao = a.Table1[0]["weixinhao"];
+                            console.log(weixinhao);
+                            $("#weixinhao").val(weixinhao);
+                            $("#weixinhao").attr("readonly", "true");
 
                             var mima = a.Table1[0]["mima"];
                             console.log(mima);
@@ -4701,8 +4701,8 @@
             </div>
         </a>
 
-    </script>
-    
+    </script>weixinhao
+
     <script id="sub-child-shuqian" type="text/html">
         <!-- 书签 -->
 

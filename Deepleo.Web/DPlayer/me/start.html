@@ -1,0 +1,124 @@
+<html>
+<head>
+
+    <title>DPlayer Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css">
+    <!--<link rel="stylesheet" href="../demo.css">-->
+    <script src="https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pearplayer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dplayer@1.27.0/dist/DPlayer.min.js"></script>
+    <script src="/weui/a/zepto.min.js"></script>
+    <!--<script src="../DPlayer.js"></script>
+        -->
+
+
+</head>
+
+    <body>
+        <h2 id="quick-start">Quick Start</h2>
+        <div class="example">
+            <div id="dplayer-container"></div>
+        </div>
+
+        <script>
+
+            var clientH = document.body.clientHeight // 屏幕高度
+            var y, mY
+
+            // 监听触摸开始
+            document.body.addEventListener('touchstart', function (event) {
+                y = event.touches[0].pageY
+            })
+
+            // 监听触摸结束
+            document.body.addEventListener('touchend', function (event) {
+                console.log(mY)
+                if (mY > 0) { // 向下滑动
+                    if (mY > 50) { // 翻页
+                        //alert("翻页")
+                    } else { // 还原
+                        //alert("还原")
+                    }
+
+                } else { // 向上滑动
+                    if (mY < -50) { // 翻页
+                        //alert("翻页-向上滑动")
+
+                        window.location.href = '/DPlayer/me/start.html#' + 'http://static.smartisanos.cn/common/video/t1-ui.mp4';
+                        window.location.reload();
+                    } else { // 还原
+                        //alert("还原")
+                    }
+                }
+            })
+
+            // 滑动过程
+            document.body.addEventListener('touchmove', function (event) {
+                mY = event.touches[0].pageY - y
+
+              
+            })
+
+
+            //$(window).scroll(function (event) {
+            //    var wScrollY = window.scrollY; // 当前滚动条位置    
+            //    var wInnerH = window.innerHeight; // 设备窗口的高度（不会变）    
+            //    var bScrollH = document.body.scrollHeight; // 滚动条总高度        
+            //    if (wScrollY + wInnerH >= bScrollH) {
+            //        console.log("到底了.");
+
+
+            //        window.location.href = '/DPlayer/me/start.html#' + 'http://static.smartisanos.cn/common/video/t1-ui.mp4';
+            //        window.location.reload();
+            //    }
+            //});
+
+
+            var maodianID = window.location.hash;
+            var src = 'http://static.smartisanos.cn/common/video/t1-ui.mp4'
+            if (maodianID != '')
+                src = maodianID.substring(1)
+
+            //debugger
+
+            //alert(len(maodianID))
+
+    
+            //var src = "http://static.smartisanos.cn/common/video/t1-ui.mp4";
+                var dp =new DPlayer({
+                container: document.getElementById('dplayer-container'),
+                    preload: 'auto',
+                    autoplay: true,
+                screenshot: true,
+                video: {
+                    // url: 'http://static.smartisanos.cn/common/video/t1-ui.mp4',
+                    url: src
+                }
+                });
+
+
+            window.dpFloat = dp;
+
+            //dp.on('ended', function () {
+            //    console.log('player ended');
+            //    alert(222);
+            //});
+            dp.play();
+        </script>
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+</html>
