@@ -3570,7 +3570,6 @@
 
 
                         //更新历史
-                        shuqianTable = a.Table2;
                         var tpl = template(document.getElementById('tpl').innerHTML);
                         var childTpl = template(document.getElementById('child-tpl').innerHTML);
                         var subChildTpl_lishi = template(document.getElementById('sub-child-lishi').innerHTML);
@@ -3579,7 +3578,7 @@
                         var html_lishi = tpl({
                             newsListTpl: childTpl,
                             newsTpl: subChildTpl_lishi,
-                            list1: shuqianTable,
+                            list1: a.Table2,
                         })
                         //console.log(html);
                         document.getElementById('panel1').innerHTML = html_lishi;
@@ -3588,7 +3587,7 @@
                         var html_shuqian = tpl({
                             newsListTpl: childTpl,
                             newsTpl: subChildTpl_shuqian,
-                            list1: shuqianTable,
+                            list1: a.Table3,
                         })
 
                         document.getElementById('panel2').innerHTML = html_shuqian;
@@ -3686,12 +3685,6 @@
 
 
                 }
-
-                var $formSubmit = $("#shuqianLishi")
-                debugger
-                $formSubmit.click(function () {
-                    alert(2);
-                })
 
                 //搜索
                 var $searchBar = $('#searchBar'),
@@ -4720,10 +4713,11 @@
 
 
     <script src="./template.js"></script>
+    <script src="./mycommon.js"></script>
     <script id="sub-child-lishi" type="text/html">
         <!-- 历史 -->
 
-        <a id="shuqianLishi" href="<%=Lianjie%>" >
+        <a href="<%=Lianjie%>" onclick="tiJiaoFangwenShuqian(<%=ID%>)">
             <div style="padding:2px" role="option" aria-labelledby="b1_txt1" aria-describedby="b1_n1" class="weui-cell weui-cell_active">
                 <div class="weui-cell__hd" aria-hidden="true">
                     <img width="50" height="60" src="<%=Suoluetu%>" alt="">
@@ -4736,8 +4730,7 @@
                 </div>
             </div>
         </a>
-
-    </script>weixinhao
+    </script>
 
     <script id="sub-child-shuqian" type="text/html">
         <!-- 书签 -->

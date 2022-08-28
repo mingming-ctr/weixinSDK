@@ -102,7 +102,7 @@ SELECT *
 
         }
 
-        internal static DataSet Userfangwen(string openId)
+        internal static DataSet UserFangwen(string openId)
         {
             string sqlFmt =
                 @"
@@ -115,7 +115,7 @@ SELECT case when '{0}'==''
 
 
 
-INSERT INTO fangwen (
+INSERT INTO Fangwen (
                       openId
 
                   )
@@ -128,9 +128,30 @@ SELECT *
   where openId='{0}'
  ;
 
+
+select * from FangwenShuqian f
+left join Shuqian s on f.shuqianID = s.ID
+where
+f.openId='{0}'
+and f.id in
+(
+select MAX(id) as ID from FangwenShuqian f
+where openId='{0}'
+group by shuqianID
+
+)
+
+order by charuShijian desc
+
+
+
+
+
+
+;
+
 select * from Shuqian
 
- ;
 
 ";
 

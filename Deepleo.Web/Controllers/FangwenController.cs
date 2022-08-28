@@ -11,12 +11,12 @@ using Newtonsoft.Json;
 
 namespace Deepleo.Web.Controllers
 {
-    public class fangwenController : ApiController
+    public class FangwenController : ApiController
     {
         // GET api/fangwen
         public string Get(string openId)
         {
-            DataSet ds = UserManager.Userfangwen(openId);
+            DataSet ds = UserManager.UserFangwen(openId);
             string json = JsonConvert.SerializeObject(ds, Formatting.Indented);
             return json;
         }

@@ -19,8 +19,8 @@ namespace Deepleo.Web.Services
                 @"
 
 
-SELECT case when @Biaoti==''
-            then '标签名称必须输入'  
+SELECT case when '{1}'==''
+            then '标签ID必须输入'  
             else '验证通过' end AS result;
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
