@@ -9,7 +9,18 @@
     })
 })(Zepto)
 
+
+
+//从书签里面提交
+function tiJiaoFangwenShuqian_shuqian() {
+    var ID = $.fn.getUrlParam('ID');
+    tiJiaoFangwenShuqian(ID);
+}
+
+//从历史里面提交
 function tiJiaoFangwenShuqian(ID) {
+
+    //debugger
     var openId = $.fn.getUrlParam('openId');
 
     var url = "/api/fangwenshuqian";

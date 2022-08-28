@@ -150,7 +150,7 @@ order by charuShijian desc
 
 ;
 
-select * from Shuqian
+select '{0}' as openId,* from Shuqian
 
 
 ";
