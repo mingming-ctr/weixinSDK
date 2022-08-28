@@ -17,7 +17,7 @@ namespace Deepleo.Web.Controllers
         // GET api/user
         public string Get(string openId)
         {
-            DataSet ds = UserManager.UserVisit(openId);
+            DataSet ds = UserManager.Userfangwen(openId);
             string json = JsonConvert.SerializeObject(ds, Formatting.Indented);
             return json;
         }

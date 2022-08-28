@@ -102,7 +102,7 @@ SELECT *
 
         }
 
-        internal static DataSet UserVisit(string openId)
+        internal static DataSet Userfangwen(string openId)
         {
             string sqlFmt =
                 @"
@@ -115,7 +115,7 @@ SELECT case when '{0}'==''
 
 
 
-INSERT INTO Visit (
+INSERT INTO fangwen (
                       openId
 
                   )

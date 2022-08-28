@@ -11,34 +11,34 @@ using Newtonsoft.Json;
 
 namespace Deepleo.Web.Controllers
 {
-    public class VisitController : ApiController
+    public class fangwenController : ApiController
     {
-        // GET api/visit
+        // GET api/fangwen
         public string Get(string openId)
         {
-            DataSet ds = UserManager.UserVisit(openId);
+            DataSet ds = UserManager.Userfangwen(openId);
             string json = JsonConvert.SerializeObject(ds, Formatting.Indented);
             return json;
         }
 
-        // GET api/visit/5
+        // GET api/fangwen/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/visit
+        // POST api/fangwen
         public void Post([FromBody]UserModel p)
         {
 
         }
 
-        // PUT api/visit/5
+        // PUT api/fangwen/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/visit/5
+        // DELETE api/fangwen/5
         public void Delete(int id)
         {
         }

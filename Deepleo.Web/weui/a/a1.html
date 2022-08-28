@@ -3516,7 +3516,7 @@
                     type: "GET",//方法类型
                     caches: false,//不要读取缓存openId
                     dataType: "json",//预期服务器返回的数据类型
-                    url: "/api/visit?openId =" + openId,//url
+                    url: "/api/fangwen?openId =" + openId,//url
                     data: $('#formSubmit').serialize(),
                     success: function (result) {
                         console.log(result);//打印服务端返回的数据(调试用)
@@ -3650,12 +3650,48 @@
 
                 }
 
+
+
                 $("#formSubmitBtn").click(function (event) {
                     /* Act on the event */
                     submitForm();
                 });
+                //访问记录
+                function submitFangwenShuqian() {
+                    var url = "api/fangwenshuqian";
+                    var type = "POST";
+
+                    $.ajax({
+                        //几个参数需要注意一下
+                        type: type,//方法类型
+                        caches: false,//不要读取缓存
+                        dataType: "json",//预期服务器返回的数据类型
+                        url: url,//url
+                        data: $('#formSubmit').serialize(),
+                        success: function (result) {
+                            console.log(result);//打印服务端返回的数据(调试用)
+                            if ("验证通过" == result) {
+
+                                weui.alert("保存成功")
+                                location.reload();
+                            }
+                            else
+                                weui.alert(result)
+                        },
+                        error: function (ex) {
+                            console.log(ex)
+                            alert(ex);
+                        }
+                    });
 
 
+                }
+
+                var $formSubmit = $("#shuqianLishi")
+                debugger
+                $formSubmit.click(function () {
+                    alert(2);
+                })
 
                 //搜索
                 var $searchBar = $('#searchBar'),
@@ -4687,7 +4723,7 @@
     <script id="sub-child-lishi" type="text/html">
         <!-- 历史 -->
 
-        <a href="<%=Lianjie%>">
+        <a id="shuqianLishi" href="<%=Lianjie%>" >
             <div style="padding:2px" role="option" aria-labelledby="b1_txt1" aria-describedby="b1_n1" class="weui-cell weui-cell_active">
                 <div class="weui-cell__hd" aria-hidden="true">
                     <img width="50" height="60" src="<%=Suoluetu%>" alt="">

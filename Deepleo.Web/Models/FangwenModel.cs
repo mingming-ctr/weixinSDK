@@ -5,11 +5,11 @@ using System.Web;
 
 namespace Deepleo.Web.Models
 {
-    public class VisitModel
+    public class fangwenModel
     {
         public string openId { set; get; }
         public string myUserName { set; get; }
-        public long visitAt { set; get; }
+        public DateTime fangwenShijian { set; get; }
         
 
 
