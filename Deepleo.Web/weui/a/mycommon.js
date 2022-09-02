@@ -45,33 +45,41 @@ function tiJiaoFangwenShuqian(ID) {
 }
 
 //从api中提交书put,url里面可以带/1
-function apiPut(url,data,keys,form) {
-    var realUrl = 'api/' + url
-    debugger
-    var openId = $.fn.getUrlParam('openId');
+function apiPOST(url, data, keys, form, fnSuccess) {
+    var realUrl = '/api/' + url
+    //var openId = $.fn.getUrlParam('openId');
     var dataTemp = {}
-    for (var i = 0; i < data.length; i++) {
-        var key = data; 
+    var dataKeys=Object.keys(data)
+
+    for (var i = 0; i < dataKeys.length; i++) {
+        var key = dataKeys[i];
+        var v = data[key]
+        dataTemp[key] = v
     }
 
     for (var i = 0; i < keys.length; i++) {
         key = keys[i]
         value = $.fn.getUrlParam(key)
-        data[key] = value
+        dataTemp[key] = value
     }
 
-    var url = "/api/fangwenshuqian";
-    var type = "PUT";
+    console.log(dataTemp)
+
+
+    var type = "POST";
     $.ajax({
         //几个参数需要注意一下
         type: type,//方法类型
         caches: false,//不要读取缓存
         dataType: "json",//预期服务器返回的数据类型
-        url: url,//url
-        data: data,
+        url: realUrl,//url
+        data: dataTemp,
         success: function (result) {
             console.log(result);
-            debugger
+            var a = JSON.parse(result)
+            var fengxianMa=a.Table1[0].fengxianMa
+            fnSuccess(fengxianMa)
+            //debugger
         },
         error: function (ex) {
             console.log(ex)

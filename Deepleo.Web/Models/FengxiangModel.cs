@@ -13,7 +13,7 @@ namespace Deepleo.Web.Models
         public string ID { set; get; }
         public string ShuqianID { set; get; }
         public string FengxianMa { set; get; }
-        public string UserID { set; get; }
+        public string openId { set; get; }
         public DateTime ChuangjianShijian { set; get; }
         public int liulanCishu { set; get; }
 
@@ -22,7 +22,7 @@ namespace Deepleo.Web.Models
         //    ID INTEGER  PRIMARY KEY AUTOINCREMENT,
         //ShuqianID INTEGER  REFERENCES Shuqian(ID),
         //FengxianMa STRING   DEFAULT(substr(CAST (random() AS STRING), 2, 4) ),
-        //UserID INTEGER  REFERENCES User(ID),
+        //openId INTEGER  REFERENCES User(ID),
         //charuShijian DATETIME DEFAULT(datetime('now', 'localtime') ),
         //liulanCishu INTEGER
 

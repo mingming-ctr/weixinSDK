@@ -18,44 +18,31 @@ namespace Deepleo.Web.Services
                 @"
 
 
-SELECT case when '{0}'==''
-           then '微信号必须输入'  
+SELECT case  
             when '{1}'==''
            then '必须通过微信公众号完成绑定'  
-           when EXISTS (
-               SELECT *
-                 FROM Fengxiang
-                WHERE openId = '{1}'
-           )
-           then '微信已经绑定过了，不要重复绑定'  
-           when EXISTS (
-               SELECT *
-                 FROM Fengxiang
-                WHERE weixinhao = '{0}'
-           )
-           then '请确认是否是自己的微信号' 
            else '验证通过' end AS result;
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
 INSERT INTO Fengxiang (
                           ShuqianID,
-                          UserID
+                          openId
                       )
                       VALUES (
-                          '{0}',--@ShuqianID,
-                          '{1}'@UserID
+                          '{0}', --@ShuqianID,
+                          '{1}'  --@UserID
                       );
 
 
 
 SELECT *
   FROM Fengxiang
-  where id =last_insert_rowid()
+  where FengxiangID =last_insert_rowid()
  ;
 
 ";
           
-            string sql = string.Format(sqlFmt, p.ShuqianID, p.UserID);
+            string sql = string.Format(sqlFmt, p.ShuqianID, p.openId);
             DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
                 return ds;
 

@@ -5,7 +5,7 @@
  */
 
 var copyText = function (button, content, success) {
- 
+
     if (!button) {
         return;
     }
