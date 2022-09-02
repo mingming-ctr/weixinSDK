@@ -20,7 +20,7 @@ namespace Deepleo.Web.Services
 
 
 SELECT case when '{1}'==''
-            then '标签ID必须输入'  
+            then '书签ID必须输入'  
             else '验证通过' end AS result;
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
@@ -39,7 +39,7 @@ INSERT INTO FangwenShuqian (
 
 SELECT *
   FROM FangwenShuqian
-  where ID =last_insert_rowid()
+  where FangwenShuqianID =last_insert_rowid()
  ;
 
 ";

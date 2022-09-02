@@ -4714,6 +4714,8 @@
 
     <script src="./template.js"></script>
     <script src="./mycommon.js"></script>
+    <script src="./copyText.js"></script>
+
     <script id="sub-child-lishi" type="text/html">
         <!-- 历史 -->
 
@@ -4744,7 +4746,12 @@
                 <div class="weui-cell__bd" aria-hidden="true" id="b1_txt1">
                     <span><%=Biaoti%></span>
                 </div>
+                <input id="btnFenxiang" type="button" value="分享" href="javascript:" role="button" style="margin-right:0px" class="weui-btn weui-btn_mini weui-btn_default weui-wa-hotarea" onclick="apiPut(url = 'fengxiang', data = {'ShuqianID':'<%=ShuqianID %>'}, keys = ['ShuqianID', 'UserID']); copyText(this,<%=ID %>); return false;" />
+
             </div>
+
+
+
         </a>
 
     </script>

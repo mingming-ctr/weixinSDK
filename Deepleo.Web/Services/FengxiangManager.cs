@@ -9,9 +9,9 @@ using System.Web.Security;
 
 namespace Deepleo.Web.Services
 {
-    public class UserManager
+    public class FengxiangManager
     {
-        public static DataSet CreateUser(UserModel p)
+        public static DataSet CreateFengxiang(FengxiangModel p)
         {
 
             string sqlFmt =
@@ -24,50 +24,45 @@ SELECT case when '{0}'==''
            then '必须通过微信公众号完成绑定'  
            when EXISTS (
                SELECT *
-                 FROM user
+                 FROM Fengxiang
                 WHERE openId = '{1}'
            )
            then '微信已经绑定过了，不要重复绑定'  
            when EXISTS (
                SELECT *
-                 FROM user
+                 FROM Fengxiang
                 WHERE weixinhao = '{0}'
            )
            then '请确认是否是自己的微信号' 
            else '验证通过' end AS result;
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
+INSERT INTO Fengxiang (
+                          ShuqianID,
+                          UserID
+                      )
+                      VALUES (
+                          '{0}',--@ShuqianID,
+                          '{1}'@UserID
+                      );
 
 
-INSERT INTO User (
-                      weixinhao,
-                      openId,
-                      mima,
-                      email
 
-                  )
-                  VALUES (
-                      '{0}',
-                      '{1}',
-                      '{2}',
-                      '{3}'
-                  );
-                  
 SELECT *
-  FROM User
+  FROM Fengxiang
   where id =last_insert_rowid()
  ;
 
 ";
           
-            string sql = string.Format(sqlFmt, p.weixinhao, p.openId,p.mima,p.email);
+            string sql = string.Format(sqlFmt, p.ShuqianID, p.UserID);
             DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
                 return ds;
 
 
         }
         
-        public static DataSet UpdateUser(UserModel p)
+        public static DataSet UpdateFengxiang(FengxiangModel p)
         {
 
             string sqlFmt =
@@ -82,27 +77,27 @@ SELECT case when '{0}'==''
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
 
-update User
+update Fengxiang
 set 
     mima='{2}',
     email='{3}'
     where openId='{1}';
                   
 SELECT *
-  FROM User
+  FROM Fengxiang
   where id =last_insert_rowid()
  ;
 
 ";
           
-            string sql = string.Format(sqlFmt, p.weixinhao, p.openId,p.mima,p.email);
+            string sql = string.Format(sqlFmt);
             DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
                 return ds;
 
 
         }
 
-        internal static DataSet UserFangwen(string openId)
+        internal static DataSet FengxiangFangwen(string openId)
         {
             string sqlFmt =
                 @"
@@ -124,18 +119,18 @@ INSERT INTO Fangwen (
                   );
                   
 SELECT *
-  FROM User
+  FROM Fengxiang
   where openId='{0}'
  ;
 
 
 select * from FangwenShuqian f
-left join Shuqian s on f.shuqianID = s.ShuqianID
+left join Shuqian s on f.shuqianID = s.ID
 where
 f.openId='{0}'
-and f.FangwenShuqianID in
+and f.id in
 (
-select MAX(FangwenShuqianID) as ID from FangwenShuqian f
+select MAX(id) as ID from FangwenShuqian f
 where openId='{0}'
 group by shuqianID
 
