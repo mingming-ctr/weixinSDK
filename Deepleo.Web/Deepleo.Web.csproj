@@ -126,7 +126,7 @@
     <Compile Include="Attributes\WeixinOAuthAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FangwenShuqianController.cs" />
-    <Compile Include="Controllers\FengxiangController.cs" />
+    <Compile Include="Controllers\FenxiangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JSSDKController.cs" />
     <Compile Include="Controllers\OAuthController.cs" />
@@ -140,7 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FangwenShuqianModel.cs" />
-    <Compile Include="Models\FengxiangModel.cs" />
+    <Compile Include="Models\FenxiangModel.cs" />
     <Compile Include="Models\ShuqianModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\FangwenModel.cs" />
@@ -154,7 +154,7 @@
     <Compile Include="Services\FangwenShuqianManager.cs" />
     <Compile Include="Services\SQLiteHelper.cs" />
     <Compile Include="Services\ShuqianManager.cs" />
-    <Compile Include="Services\FengxiangManager.cs" />
+    <Compile Include="Services\FenxiangManager.cs" />
     <Compile Include="Services\UserManager.cs" />
     <Compile Include="Services\AuthorizationManager.cs" />
     <Compile Include="Services\LogWriter.cs" />

@@ -156,6 +156,9 @@ select '{0}' as openId,* from Shuqian
 ";
 
             string sql = string.Format(sqlFmt, openId);
+
+            LogWriter.Default.WriteInfo("UserFangwen");
+            LogWriter.Default.WriteInfo(sql);
             DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
             return ds;
 

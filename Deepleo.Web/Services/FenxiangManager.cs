@@ -9,9 +9,9 @@ using System.Web.Security;
 
 namespace Deepleo.Web.Services
 {
-    public class FengxiangManager
+    public class FenxiangManager
     {
-        public static DataSet CreateFengxiang(FengxiangModel p)
+        public static DataSet CreateFenxiang(FenxiangModel p)
         {
 
             string sqlFmt =
@@ -24,7 +24,7 @@ SELECT case
            else '验证通过' end AS result;
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
-INSERT INTO Fengxiang (
+INSERT INTO Fenxiang (
                           ShuqianID,
                           openId
                       )
@@ -36,8 +36,8 @@ INSERT INTO Fengxiang (
 
 
 SELECT *
-  FROM Fengxiang
-  where FengxiangID =last_insert_rowid()
+  FROM Fenxiang
+  where FenxiangID =last_insert_rowid()
  ;
 
 ";
@@ -49,7 +49,7 @@ SELECT *
 
         }
         
-        public static DataSet UpdateFengxiang(FengxiangModel p)
+        public static DataSet UpdateFenxiang(FenxiangModel p)
         {
 
             string sqlFmt =
@@ -64,14 +64,14 @@ SELECT case when '{0}'==''
 ---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------
 
 
-update Fengxiang
+update Fenxiang
 set 
     mima='{2}',
     email='{3}'
     where openId='{1}';
                   
 SELECT *
-  FROM Fengxiang
+  FROM Fenxiang
   where id =last_insert_rowid()
  ;
 
@@ -84,7 +84,7 @@ SELECT *
 
         }
 
-        internal static DataSet FengxiangFangwen(string openId)
+        internal static DataSet FenxiangFangwen(string openId)
         {
             string sqlFmt =
                 @"
@@ -106,7 +106,7 @@ INSERT INTO Fangwen (
                   );
                   
 SELECT *
-  FROM Fengxiang
+  FROM Fenxiang
   where openId='{0}'
  ;
 

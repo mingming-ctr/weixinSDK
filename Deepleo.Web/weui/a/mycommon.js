@@ -44,7 +44,7 @@ function tiJiaoFangwenShuqian(ID) {
     });
 }
 
-//从api中提交书put,url里面可以带/1
+//从api中提交书POST,url里面可以带/1
 function apiPOST(url, data, keys, form, fnSuccess) {
     var realUrl = '/api/' + url
     //var openId = $.fn.getUrlParam('openId');
@@ -77,8 +77,8 @@ function apiPOST(url, data, keys, form, fnSuccess) {
         success: function (result) {
             console.log(result);
             var a = JSON.parse(result)
-            var fengxianMa=a.Table1[0].fengxianMa
-            fnSuccess(fengxianMa)
+            var fenxiangMa=a.Table1[0].fenxiangMa
+            fnSuccess(fenxiangMa)
             //debugger
         },
         error: function (ex) {
@@ -86,6 +86,6 @@ function apiPOST(url, data, keys, form, fnSuccess) {
             debugger
         }
     })
-   // apiPut(url = 'fengxiang', keys = ['ShuqianID','UserID'])
+   // apiPut(url = 'fenxiangg', keys = ['ShuqianID','UserID'])
 
 }
