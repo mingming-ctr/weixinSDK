@@ -41,6 +41,7 @@ namespace Deepleo.Web.Services
         public static DataSet ExecuteQueryVerify(string cmdText, params SQLiteParameter[] p)
         {
             LogWriter.Default.WriteInfo("ExecuteQueryVerify");
+            LogWriter.Default.WriteInfo("ExecuteQueryVerify");
             LogWriter.Default.WriteInfo(cmdText);
             string[] sep=new string[1];
             sep[0] = "---------ExecuteQueryVerify----ds.Tables[0].Rows[0][0].ToString()----------";

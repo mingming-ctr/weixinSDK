@@ -102,10 +102,11 @@ SELECT *
 
         }
 
-        internal static DataSet UserFangwen(string openId)
+        internal static DataSet UserFangwen(string openId,string fenxiangMa="")
         {
             string sqlFmt =
                 @"
+
 
 SELECT case when '{0}'==''
            then '必须通过微信公众号完成访问'           
@@ -128,8 +129,9 @@ SELECT *
   where openId='{0}'
  ;
 
+sqlFenxiang --此处程序替换，插入分享内容
 
-select * from FangwenShuqian f
+select s.* from FangwenShuqian f
 left join Shuqian s on f.shuqianID = s.ShuqianID
 where
 f.openId='{0}'
@@ -143,22 +145,31 @@ group by shuqianID
 
 order by charuShijian desc
 
-
-
-
-
-
 ;
 
-select '{0}' as openId,* from Shuqian
+select '{0}' as openId,* from Shuqian;
 
 
 ";
 
-            string sql = string.Format(sqlFmt, openId);
+            string sqlFenxiangFmt = @"
+INSERT INTO FangwenShuqian (
+                               openId,
+                               shuqianID,
+                               FenxiangID
+                           )
 
-            LogWriter.Default.WriteInfo("UserFangwen");
-            LogWriter.Default.WriteInfo(sql);
+select '' as openId,shuqianID,FenxiangID FROM Fenxiang
+where FenxiangMa=8818;
+
+";
+            string sqlFenxiang = "";
+            sqlFenxiang =string.Format(sqlFenxiangFmt, fenxiangMa);
+
+
+            string sql = string.Format(sqlFmt, openId);
+            sql = sql.Replace("sqlFenxiang", sqlFenxiang);
+
             DataSet ds = SQLiteHelper.ExecuteQueryVerify(sql);
             return ds;
 

@@ -132,7 +132,7 @@ select * from Shuqian
 ";
             if (ID != "")
                 sqlFmt += @"
-where ID='{0}'
+where ShuqianID='{0}'
 ";
 
             string sql = string.Format(sqlFmt, ID);

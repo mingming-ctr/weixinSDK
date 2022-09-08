@@ -77,7 +77,8 @@ function apiPOST(url, data, keys, form, fnSuccess) {
         success: function (result) {
             console.log(result);
             var a = JSON.parse(result)
-            var fenxiangMa=a.Table1[0].fenxiangMa
+            var fenxiangMa = a.Table1[0].fenxiangMa
+            debugger
             fnSuccess(fenxiangMa)
             //debugger
         },
@@ -89,3 +90,28 @@ function apiPOST(url, data, keys, form, fnSuccess) {
    // apiPut(url = 'fenxiangg', keys = ['ShuqianID','UserID'])
 
 }
+
+
+function replaceQueryString(url, nameValue) {
+    [name, value] = nameValue.split("=")
+    const re = new RegExp(name + '=[^&]*', 'gi')
+    //var nameValue = name + '=' + value
+    
+    if (url.search(re) > 0)
+        return url.replace(re, nameValue)
+
+    var joinchar = "&"
+    if (url.search("/\?/") ==-1)
+        joinchar="?"
+    
+
+    if (url.search("#") > -1) {
+        url.replace("#", joinchar + nameValue + "#")
+
+    }
+
+    return url + joinchar + nameValue 
+}
+//————————————————
+//版权声明：本文为CSDN博主「_我爱鱼香肉丝」的原创文章，遵循CC 4.0 BY - SA版权协议，转载请附上原文出处链接及本声明。
+//原文链接：https://blog.csdn.net/jsjcmq/article/details/107227763
